@@ -1,0 +1,11 @@
+### Protocol step 4)2.p.ii. - single open macro ###
+
+# For the first image file of the dataset, do not use the first line of code.
+
+run("Open Next");
+run("Make Binary");
+run("Open");
+run("Open");
+run("Close-");
+saveAs(“jpeg”);
+close();

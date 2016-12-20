@@ -1,0 +1,9 @@
+### Protocol step 4)1.c.ii. - select macro ###
+
+run("Copy");
+name = getTitle;
+newImage(name, "8-bit White", 2816, 2112, 1);
+run("Paste");
+run("Fill Holes");
+saveAs("jpeg");
+close();
