@@ -34,7 +34,6 @@ cor.test(PC1, species, method="spearman", data=data)
 cor.test(PC2, species, method="spearman", data=data)
 cor.test(PC3, position, method="spearman", data=data)
 cor.test(PC4, position, method="spearman", data=data)
-
 cor.test(data$PC1, data$species, method="spearman", data=data)
 cor.test(data$PC2, data$species, method="spearman", data=data)
 cor.test(data$PC3, data$species, method="spearman", data=data)
