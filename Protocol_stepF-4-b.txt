@@ -1,4 +1,4 @@
-### Protocol step 6)4.b. - shape features macro ###
+### Protocol step F.4.b. - shape features macro ###
 
 run("Make Binary");
 run("Analyze Particles...", "size=10000-Infinity circularity=0.00-1.00 show=Nothing display");
