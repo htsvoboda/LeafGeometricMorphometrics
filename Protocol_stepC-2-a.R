@@ -1,4 +1,4 @@
-### Protocol step 3)2.a. - Landmark Analysis ###
+### Protocol step C.2.a. - Landmark Analysis ###
 
 # This script will perform General Procrustes Analysis (GPA).
 
