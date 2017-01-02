@@ -1,4 +1,4 @@
-### Protocol step 3)2.c. - PC Visualization ###
+### Protocol step C.2.c. - PC Visualization ###
 
 # Before beginning, add the packages ‘ggplot2,’ ‘devtools,’ ‘ellipse,’ and ’roxygen2' to R.
 
