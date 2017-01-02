@@ -1,4 +1,4 @@
-### Protocol step 4)1.c.ii. - select macro ###
+### Protocol step D.1.c.ii. - select macro ###
 
 run("Copy");
 name = getTitle;
