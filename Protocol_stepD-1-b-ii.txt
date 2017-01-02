@@ -1,4 +1,4 @@
-## Protocol step 4)1.b.ii - multiple open macro ###
+## Protocol step D.1.b.ii - multiple open macro ###
 
 # For the first image file of the dataset, do not use the first line of code.
 
