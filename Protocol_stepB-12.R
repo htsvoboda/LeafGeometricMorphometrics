@@ -1,4 +1,4 @@
-### Protocol step 2)12. - Reformatting the ‘master spreadsheet’ ###
+### Protocol step B.12. - Reformatting the ‘master spreadsheet’ ###
 
 # This script converts the master spreadsheet (in which each landmark is listed one after the other) into a format in which each leaf is assigned a single row, with its landmarks as columns. Note that this example uses 17 landmarks and parameters must be changed in order to fit your dataset.
 
