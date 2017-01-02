@@ -1,4 +1,4 @@
-### Protocol step 2)10. - Landmark Check ###
+### Protocol step B.10. - Landmark Check ###
 
 # This script produces .png files of plots of the landmark data (x,y coordinates in order) and saves them in the working directory.
 
