@@ -1,48 +1,44 @@
-### Protocol step B.12. - Reformatting the ‘master spreadsheet’ ###
+### Protocol step B)12. - Landmark Check ###
 
-# This script converts the master spreadsheet (in which each landmark is listed one after the other) into a format in which each leaf is assigned a single row, with its landmarks as columns. Note that this example uses 17 landmarks and parameters must be changed in order to fit your dataset.
+# This script produces .png files of plots of the landmark data (x,y coordinates in order) and saves them in the working directory. 
 
-data <- read.table(masterspreadsheet.txt, header=TRUE)
+# Before beginning, install the package ‘ggplot2’ to R.
 
-len <- length(data$X)
-  
-overall.table <- matrix(nrow=len/17, ncol=(17*2)+1)
-  
-overall.length <- len/17
-  
-for(j in c(1:overall.length)) {
-  
-print(j)
+install.packages("ggplot2") 
 
-sub.data <- as.matrix(data[ (1+17*(j-1)):((1+17*(j-1))+16), 2:4])
+library(ggplot2)
 
-overall.table[j,1] <- sub.data[1, 1]
-overall.table[j,2:3] <- sub.data[1, 2:3]
-overall.table[j,4:5] <- sub.data[2, 2:3]
-overall.table[j,6:7] <- sub.data[3, 2:3]
-overall.table[j,8:9] <- sub.data[4, 2:3]
-overall.table[j,10:11] <- sub.data[5, 2:3]
-overall.table[j,12:13] <- sub.data[6, 2:3]
-overall.table[j,14:15] <- sub.data[7, 2:3]
-overall.table[j,16:17] <- sub.data[8, 2:3]
-overall.table[j,18:19] <- sub.data[9, 2:3]
-overall.table[j,20:21] <- sub.data[10, 2:3]
-overall.table[j,22:23] <- sub.data[11, 2:3]
-overall.table[j,24:25] <- sub.data[12, 2:3]
-overall.table[j,26:27] <- sub.data[13, 2:3]
-overall.table[j,28:29] <- sub.data[14, 2:3]
-overall.table[j,30:31] <- sub.data[15, 2:3]
-overall.table[j,32:33] <- sub.data[16, 2:3]
-overall.table[j,34:35] <- sub.data[17, 2:3]
-  }
-                    
-# Confirm the above loop worked.
+# Put this script and the data text file in a new folder. Many .png files will be produced in this step, and it is helpful for organizational purposes that they stay in one folder.
 
-head(overall.table)
-tail(overall.table)
-                    
-# Assign the new table column names and write out the reformatted table to the working directory.
+#Read in your data. The example file "landmarkTest.txt" can be found on Github for reference.
 
-colnames(overall.table) <- c("label", "x1", "y1", "x2", "y2", "x3", "y3", "x4", "y4", "x5", "y5", "x6", "y6", "x7", "y7", "x8", "y8", "x9", "y9", "x10", "y10", "x11", "y11", "x12", "y12", "x13", "y13", "x14", "y14", "x15", "y15", "x16", "y16", "x17", "y17")
-                    
-write.table(overall.table, "reformat.txt")
+data <- read.table("./landmarkTest.txt", header=TRUE)
+
+#Check the column names and bottom six rows of the dataset to ensure the file was read properly.
+names(data)
+tail(data)
+
+#Establish the length of the dataset, which is the number of leaves that need to be visualized
+len <- length(data[,1])
+
+#Run a loop to connect the correct landmarks to one another. After the "print" command, in the object "graph", you have to specify first 1) an ID for each leaf and 2) the coordiantes. In the example dataset, the first column "overall.order" is an arbitrary number assigned to each leaf that will be used as an ID and the columns 3:36 are the x,y coordinates. These columns correspond to the "LandmarkTest.txt" dataset in the loop below, but users must change them based on their dataset.
+
+for(i in 1:len) { 
+
+print(i)
+
+graph <- data[i,c(1,3:36)]
+label <- as.character(graph[1,1])
+
+vein_colour <- "mediumpurple3"
+margin_colour <- "forestgreen"
+
+p <- ggplot(graph, aes(x=x1, y=y1, xend=x12, yend=y12))
+
+plot <- p + geom_segment(colour=margin_colour) + geom_segment(aes(x=x12, y=y12, xend=x10, yend=y10), colour=margin_colour) + geom_segment(aes(x=x10, y=y10, xend=x8, yend=y8), colour=margin_colour) + geom_segment(aes(x=x8, y=y8, xend=x6, yend=y6), colour=margin_colour) + geom_segment(aes(x=x6, y=y6, xend=x4, yend=y4), colour=margin_colour) + geom_segment(aes(x=x4, y=y4, xend=x2, yend=y2), colour=margin_colour) + geom_segment(aes(x=x2, y=y2, xend=x3, yend=y3), colour=margin_colour) + geom_segment(aes(x=x3, y=y3, xend=x5, yend=y5), colour=margin_colour) + geom_segment(aes(x=x5, y=y5, xend=x7, yend=y7), colour=margin_colour) + geom_segment(aes(x=x7, y=y7, xend=x9, yend=y9), colour=margin_colour) + geom_segment(aes(x=x9, y=y9, xend=x11, yend=y11), colour=margin_colour) + geom_segment(aes(x=x11, y=y11, xend=x1, yend=y1), colour=margin_colour) + geom_segment(aes(x=x1, y=y1, xend=x13, yend=y13), colour=vein_colour) + geom_segment(aes(x=x1, y=y1, xend=x14, yend=y14), colour=vein_colour) + geom_segment(aes(x=x1, y=y1, xend=x15, yend=y15), colour=vein_colour) + geom_segment(aes(x=x1, y=y1, xend=x16, yend=y16), colour=vein_colour) + geom_segment(aes(x=x1, y=y1, xend=x17, yend=y17), colour=vein_colour) + geom_segment(aes(x=x16, y=y16, xend=x11, yend=y11), colour=vein_colour) + geom_segment(aes(x=x17, y=y17, xend=x12, yend=y12), colour=vein_colour) + geom_text(aes(x=(min(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17)+max(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17))/2, y=min(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17)+10,label=label), size=8, colour="black") + theme_bw() + coord_fixed(ratio=1)
+
+# After the loop above creates a plot of each leaf in the data file, each leaf will be printed as a separate file in the current working directory using the command below.
+
+ggsave(plot,filename=paste(label,".png",sep=""))
+
+}
