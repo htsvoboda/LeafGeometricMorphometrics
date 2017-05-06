@@ -1,0 +1,6 @@
+### Protocol step D.3.b.v. - conversion macro ###
+
+# This macro will convert regular JPEG images into binary BMP files.
+
+run("Make Binary");
+run("RGB Color");
