@@ -1,4 +1,4 @@
-### Protocol step B)10. - Reformatting the 'master spreadsheet' ###
+### Protocol step B)11. - Reformatting the ‘master spreadsheet’ ###
 
 # This script converts the master spreadsheet (in which each landmark is listed one after the other) into a format in which each leaf is assigned a single row, with its landmarks as columns. Note that this example uses 17 landmarks and parameters must be changed in order to fit your dataset.
 
@@ -43,6 +43,6 @@ tail(overall.table)
                     
 # Assign the new table column names and write out the reformatted table to the working directory.
 
-colnames(overall.table) <- c("label", "x1", "y1", "x2", "y2", "x3", "y3", "x4", "y4", "x5", "y5", "x6", "y6", "x7", "y7", "x8", "y8", "x9", "y9", "x10", "y10", "x11", "y11", "x12", "y12", "x13", "y13", "x14", "y14", "x15", "y15", "x16", "y16", "x17", "y17")
+colnames(overall.table) <- c("order", "label", "x1", "y1", "x2", "y2", "x3", "y3", "x4", "y4", "x5", "y5", "x6", "y6", "x7", "y7", "x8", "y8", "x9", "y9", "x10", "y10", "x11", "y11", "x12", "y12", "x13", "y13", "x14", "y14", "x15", "y15", "x16", "y16", "x17", "y17")
                     
 write.table(overall.table, "reformat.txt")
