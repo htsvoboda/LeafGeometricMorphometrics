@@ -13,7 +13,7 @@ k <- 17
 m <- 2
 n <- 640 
 
-data <- read.in(reformat.txt,k,m)
+data <- read.in("reformat.txt",k,m)
 
 GPA <- procGPA(data, reflect=TRUE)
 
