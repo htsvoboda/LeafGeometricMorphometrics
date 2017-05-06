@@ -1,0 +1,11 @@
+## Protocol step D.1.b.ii - multiple open macro ###
+
+# For the first image file of the dataset, do not use the first line of code.
+
+run("Open Next");
+run("Make Binary");
+run("Open");
+run("Open");
+run("Close-");
+run("Close-");
+run("Image Inverter");
