@@ -7,7 +7,7 @@ install.packages("devtools")
 library(devtools)
 install.packages("ellipse")
 library(ellipse)
-install.packages("roxygen")
+install.packages("roxygen2")
 library(roxygen2)
 
 # Read in the data.
